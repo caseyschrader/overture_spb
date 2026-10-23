@@ -39,8 +39,9 @@
     .panel { left: 8px; right: 8px; top: 8px; width: auto; padding: 8px 12px; background: rgba(14,17,22,.72); }
     #toggle { position: absolute; top: 8px; right: 8px; }
     .head { margin-bottom: 4px; padding-right: 40px; }
-    .compact .head { margin: 0; padding: 0; }
-    .compact h1 { display: none; }
+    .head { margin-bottom: 2px; }
+    .panel h1 { font-size: 11px; }
+    #toggle { top: 6px; right: 6px; padding: 3px 7px; }
     .big { font-size: 26px; }
     .big small { font-size: 13px; }
     .next b { font-size: 15px; margin: 1px 0; }
@@ -119,7 +120,7 @@
     return m.addTo(map);
   });
 
-  function legColor() { return '#ff4d4d'; }
+  function legColor() { return '#3b9cff'; }
   var legs = new Array(nLegs), group = L.layerGroup().addTo(map), drawn = 0;
   function legLine(i) {
     if (!legs[i]) {
@@ -128,7 +129,7 @@
     }
     return legs[i];
   }
-  var partial = L.polyline([], { renderer: rLines, pane: 'lines', color: '#ff8a8a', weight: 3, opacity: 0.95, interactive: false }).addTo(map);
+  var partial = L.polyline([], { renderer: rLines, pane: 'lines', color: '#9fd0ff', weight: 3, opacity: 0.95, interactive: false }).addTo(map);
   var head = L.circleMarker(allLL[0], { renderer: rHead, pane: 'head', radius: 7, color: '#ffffff', weight: 2, fillColor: '#ff4d4d', fillOpacity: 1, interactive: false }).addTo(map);
 
   function upper(a, x) { var lo = 0, hi = a.length; while (lo < hi) { var m = (lo + hi) >> 1; if (a[m] <= x) lo = m + 1; else hi = m; } return lo; }
